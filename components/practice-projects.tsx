@@ -3,6 +3,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
 import {
   Carousel,
   CarouselContent,
@@ -33,7 +34,7 @@ const practiceProjects: Project[] = [
       "Email.js",
       "JavaScript",
     ],
-    githubUrl: "",
+    githubUrl: "https://github.com/SergioAngel-1/portfolio",
     liveUrl: "",
   },
   {
@@ -49,8 +50,7 @@ const practiceProjects: Project[] = [
     title: "PINUP",
     description:
       "Aplicación Web para academia de baile, con roles, perfiles y demás.",
-    image:
-      "/assets/img/practiceProjects/PinUp.png",
+    image: "/assets/img/practiceProjects/PinUp.png",
     technologies: [
       "React",
       "JavaScript",
@@ -139,7 +139,7 @@ export function PracticeProjects() {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105 filter"
                     />
                   </div>
                   <div className="p-4">
@@ -160,37 +160,37 @@ export function PracticeProjects() {
                       ))}
                     </div>
                     <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 text-sm hover:bg-gray-100"
-                        asChild
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                       >
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Github className="mr-1.5 h-4 w-4" />
-                          Code
-                        </a>
-                      </Button>
-                      {project.liveUrl && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="flex-1 text-sm hover:bg-gray-100"
-                          asChild
-                        >
+                        <Button variant="outline" size="sm" asChild>
                           <a
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <ExternalLink className="mr-1.5 h-4 w-4" />
-                            Demo
+                            <Github className="mr-2 h-4 w-4" />
+                            Code
                           </a>
                         </Button>
+                      </motion.div>
+                      {project.liveUrl && (
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Button variant="outline" size="sm" asChild>
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink className="mr-2 h-4 w-4" />
+                              Demo
+                            </a>
+                          </Button>
+                        </motion.div>
                       )}
                     </div>
                   </div>

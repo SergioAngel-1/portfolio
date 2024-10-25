@@ -48,6 +48,17 @@ const skillCategories = [
       "CMD",
     ],
   },
+  {
+    title: "Habilidades Sociales",
+    skills: [
+      "Comunicación Efectiva",
+      "Resolución de Problemas",
+      "Adaptabilidad",
+      "Trabajo en Equipo",
+      "Gestión de Tiempo",
+      "Empatía y Escucha atractiva",
+    ],
+  },
 ];
 
 export function Skills() {
@@ -60,7 +71,7 @@ export function Skills() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Habilidades y Tecnologías
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
           {skillCategories.map((category) => (
             <Card key={category.title} className="p-6">
               <h3 className="text-xl font-semibold mb-4">{category.title}</h3>

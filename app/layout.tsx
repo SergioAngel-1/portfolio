@@ -7,9 +7,11 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Developer Sergio Jáuregui",
-  description:
-    "Portafolio Profesional Desarrollador FullStack",
+  title: "Sergio Jáuregui Developer",
+  description: "Portafolio Profesional Desarrollador FullStack",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
