@@ -79,7 +79,7 @@
   background-size: cover;
 }
 
-.contact-gradient {
+#contact {
   background: radial-gradient(
     circle at bottom,
     rgba(76, 165, 255, 0.1) 0%,

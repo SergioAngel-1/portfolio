@@ -64,7 +64,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-20">
+    <section id="contact" className="py-16 md:py-20 contact-gradient">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-12"
