@@ -23,9 +23,9 @@ export function About() {
                 Desarrollo FullStack Integral
               </h3>
               <p className="text-muted-foreground">
-                Capacidad para diseñar y construir aplicaciones completas desde
-                la interfaz hasta el backend, asegurando una experiencia fluida
-                y escalable.
+                Diseño y construyo aplicaciones completas, desde la interfaz de
+                usuario hasta el backend, garantizando una experiencia fluida,
+                eficiente y altamente escalable.
               </p>
             </div>
           </Card>
