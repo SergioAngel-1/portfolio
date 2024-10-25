@@ -143,7 +143,7 @@ export function PracticeProjects() {
     });
   }, [api]);
 
-  const containerVariants = {
+  const mainContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -225,7 +225,7 @@ export function PracticeProjects() {
   };
 
   return (
-    <section className="py-16">
+    <section className="py-16 bg-gradient-to-b from-transparent to-muted/30">
       <div className="container mx-auto px-6">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-12"
@@ -238,12 +238,14 @@ export function PracticeProjects() {
         </motion.h2>
 
         <motion.div
-          variants={containerVariants}
+          variants={mainContainerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          className="relative mx-auto"
+          style={{ maxWidth: "calc(100% - 3rem)" }}
         >
           <Carousel
             opts={{
@@ -253,12 +255,12 @@ export function PracticeProjects() {
             setApi={setApi}
             className="w-full max-w-7xl mx-auto"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="">
               <AnimatePresence mode="wait">
                 {practiceProjects.map((project, index) => (
                   <CarouselItem
                     key={index}
-                    className="pl-4 basis-full md:basis-1/2 lg:basis-1/4"
+                    className=" basis-full md:basis-1/2 lg:basis-1/4"
                   >
                     <motion.div
                       variants={cardVariants}
@@ -355,14 +357,19 @@ export function PracticeProjects() {
                 ))}
               </AnimatePresence>
             </CarouselContent>
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: isHovered ? 1 : 0.7 }}
               transition={{ duration: 0.3 }}
-              className="absolute -left-4 right-4 top-1/2 -translate-y-1/2 flex justify-between"
+              className="absolute inset-y-0 -left-6 -right-6 flex items-center justify-between pointer-events-none"
             >
-              <CarouselPrevious className="relative hover:bg-white transition-all duration-200" />
-              <CarouselNext className="relative hover:bg-white transition-all duration-200" />
+              <div className="pointer-events-auto">
+                <CarouselPrevious className="relative hover:bg-background/80 transition-all duration-200" />
+              </div>
+              <div className="pointer-events-auto">
+                <CarouselNext className="relative hover:bg-background/80 transition-all duration-200" />
+              </div>
             </motion.div>
           </Carousel>
         </motion.div>
