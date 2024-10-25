@@ -12,7 +12,7 @@ export function Hero() {
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Desarrollador de Soluciones Web Impactantes y Escalables
           </h1>
-          <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-xl mb-8 max-w-2xl mx-auto">
             Apasionado por transformar ideas en experiencias digitales fluidas y
             eficientes. Mi enfoque se centra en crear proyectos únicos que
             combinan creatividad y funcionalidad, siempre orientado a los
