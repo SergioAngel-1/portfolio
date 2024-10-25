@@ -166,7 +166,7 @@ export function PracticeProjects() {
                       >
                         <Button variant="outline" size="sm" asChild>
                           <a
-                            href={project.liveUrl}
+                            href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
