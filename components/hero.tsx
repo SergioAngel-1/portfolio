@@ -37,15 +37,28 @@ export function Hero() {
   };
 
   const buttonVariants = {
+    initial: { scale: 1 },
     hover: {
       scale: shouldReduceMotion ? 1 : 1.05,
       transition: {
-        type: "tween",
-        duration: 0.2,
-        ease: "easeOut",
+        type: "spring",
+        stiffness: 400,
+        damping: 10,
       },
     },
     tap: { scale: shouldReduceMotion ? 1 : 0.95 },
+  };
+
+  const iconVariants = {
+    initial: { rotate: 0 },
+    animate: {
+      rotate: 360,
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "linear",
+      },
+    },
   };
 
   if (!isMounted) {
@@ -117,6 +130,7 @@ export function Hero() {
           >
             <motion.div
               variants={buttonVariants}
+              initial="initial"
               whileHover="hover"
               whileTap="tap"
               className="animate-gpu"
@@ -125,13 +139,7 @@ export function Hero() {
                 <a href="#contact" className="flex gap-2 items-center">
                   Contacta conmigo
                   <motion.div
-                    animate={
-                      shouldReduceMotion
-                        ? {}
-                        : {
-                            x: [0, 5, 0],
-                          }
-                    }
+                    animate={{ x: [0, 5, 0] }}
                     transition={{
                       duration: 1.5,
                       repeat: Infinity,
@@ -147,6 +155,7 @@ export function Hero() {
 
             <motion.div
               variants={buttonVariants}
+              initial="initial"
               whileHover="hover"
               whileTap="tap"
               className="animate-gpu"
@@ -159,18 +168,9 @@ export function Hero() {
                   className="gap-2"
                 >
                   <motion.div
-                    animate={
-                      shouldReduceMotion
-                        ? {}
-                        : {
-                            rotate: [0, 360],
-                          }
-                    }
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
+                    variants={iconVariants}
+                    initial="initial"
+                    animate="animate"
                     className="animate-gpu"
                   >
                     <Github className="h-4 w-4" />

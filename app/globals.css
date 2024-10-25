@@ -4,29 +4,6 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -46,41 +23,42 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+    --radius: 0.5rem;
   }
 }
 
 @layer base {
-  html {
-    @apply antialiased scroll-smooth;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-    overflow-x: hidden;
-  }
-
   * {
     @apply border-border;
   }
 
-  /* Custom Scrollbar */
-  ::-webkit-scrollbar {
-    @apply w-2;
+  html {
+    @apply scroll-smooth antialiased;
+    scroll-padding-top: 4rem;
   }
 
-  ::-webkit-scrollbar-track {
-    @apply bg-transparent;
+  body {
+    @apply bg-background text-foreground overflow-x-hidden min-h-screen;
   }
+}
 
-  ::-webkit-scrollbar-thumb {
-    @apply bg-muted rounded-full transition-colors hover:bg-muted-foreground/50;
-  }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
 
-  /* Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: hsl(var(--muted)) transparent;
-  }
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full transition-colors hover:bg-muted-foreground/50;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted)) transparent;
 }
 
 /* Optimized theme transition */
@@ -127,19 +105,6 @@
     rgba(182, 115, 248, 0.1) 25%,
     transparent 70%
   );
-  background-size: cover;
-  will-change: opacity;
-}
-
-#contact {
-  background: radial-gradient(
-    circle at bottom,
-    rgba(76, 165, 255, 0.1) 0%,
-    rgba(182, 115, 248, 0.1) 25%,
-    transparent 70%
-  );
-  background-size: cover;
-  will-change: opacity;
 }
 
 /* Layout fixes */
@@ -156,4 +121,117 @@ header {
   top: 0;
   left: 0;
   z-index: 50;
+}
+
+/* Adjust content for fixed header */
+main {
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--background)) 0%,
+    hsl(var(--background)) 100%
+  );
+}
+
+/* Smooth section transitions */
+section {
+  position: relative;
+  transition: background-color 0.5s ease-in-out;
+  background-color: hsl(var(--background));
+}
+
+/* Section gradient overlays for smooth transitions */
+section::before,
+section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 150px;
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+section::before {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--background)) 0%,
+    transparent 100%
+  );
+}
+
+section::after {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    hsl(var(--background)) 0%,
+    transparent 100%
+  );
+}
+
+/* Ensure smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+  @apply scroll-pt-16; /* Offset for fixed header */
+}
+
+/* Prevent horizontal scroll */
+body {
+  @apply overflow-x-hidden min-h-screen;
+  background-color: hsl(var(--background));
+}
+
+/* Container width consistency */
+.container {
+  @apply px-4 mx-auto;
+  max-width: 1280px;
+}
+
+/* Scroll indicator styles */
+.scroll-indicator {
+  @apply fixed bottom-8 right-8 z-50 bg-background/20 rounded-full p-2 backdrop-blur-sm;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+}
+
+/* Gradient overlays for sections */
+.section-gradient {
+  position: relative;
+}
+
+.section-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(76, 165, 255, 0.05) 0%,
+    rgba(182, 115, 248, 0.05) 25%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+#contact {
+  background: radial-gradient(
+    circle at bottom,
+    rgba(76, 165, 255, 0.1) 0%,
+    rgba(182, 115, 248, 0.1) 25%,
+    transparent 70%
+  );
+  background-size: cover;
+  will-change: opacity;
 }

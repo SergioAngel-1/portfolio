@@ -57,16 +57,13 @@ export function Footer() {
   ];
 
   return (
-    <motion.footer
-      className="py-8 border-t bg-background/50 backdrop-blur-sm"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={containerVariants}
-    >
+    <footer className="py-8 border-t bg-background/50 backdrop-blur-sm relative">
       <div className="container mx-auto px-4">
         <motion.div
           className="flex flex-col md:flex-row items-center justify-between gap-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
           variants={containerVariants}
         >
           <motion.p
@@ -126,6 +123,6 @@ export function Footer() {
           </motion.div>
         </motion.div>
       </div>
-    </motion.footer>
+    </footer>
   );
 }

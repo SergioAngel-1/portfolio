@@ -170,7 +170,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="py-16 md:py-20 bg-gradient-to-t from-transparent from-10% via-muted/50 via-100%"
+      className="py-16 md:py-20 relative"
     >
       <div className="container mx-auto px-4">
         <motion.h2

@@ -225,7 +225,7 @@ export function PracticeProjects() {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-b from-transparent to-muted/30">
+    <section className="py-16 relative">
       <div className="container mx-auto px-6">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-12"
