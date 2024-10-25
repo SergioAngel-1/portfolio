@@ -1,31 +1,32 @@
-LICENCIA PÚBLICA GENERAL GNU
-Versión 3, 29 de junio de 2007
+Licencia de propiedad
 
-Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
-Todos tienen permitido copiar y distribuir copias literales
-de este documento de licencia, pero no se permite modificarlo.
+Copyright (c) 2024 Sergio Angel
+Todos los derechos reservados.
 
-Preámbulo
+TÉRMINOS Y CONDICIONES
 
-La Licencia Pública General GNU es una licencia libre, copyleft, para
-software y otros tipos de obras.
+1. Permiso de visualización
+    Este software y su código fuente están disponibles solo para fines educativos y de visualización.
 
-Las licencias para la mayoría del software y otras obras prácticas están diseñadas
-para quitarle la libertad de compartir y modificar las obras. Por el contrario,
-la Licencia Pública General GNU tiene como objetivo garantizar su libertad para
-compartir y modificar todas las versiones de un programa, para asegurarse de que siga siendo software libre para todos sus usuarios. Nosotros, la Free Software Foundation, utilizamos la
-Licencia Pública General GNU para la mayoría de nuestro software; se aplica también a
-cualquier otro trabajo publicado de esta manera por sus autores. Usted también puede aplicarla a
-sus programas.
+2. Restricciones de uso
+    a. El software no se puede copiar, modificar, fusionar, publicar, distribuir, sublicenciar ni vender.
+    b. Ninguna parte de este código se puede reproducir de ninguna forma ni por ningún medio.
+    c. El diseño, la arquitectura y los detalles de implementación son de propiedad exclusiva.
 
-Cuando hablamos de software libre, nos referimos a la libertad, no al
-precio. Nuestras Licencias Públicas Generales están diseñadas para garantizar que usted
-tenga la libertad de distribuir copias de software libre (y cobrar por
-ellos si lo desea), que reciba el código fuente o pueda obtenerlo si
-lo desea, que pueda cambiar el software o usar partes de él en nuevos
-programas libres, y que sepa que puede hacer estas cosas.
+3. Requisitos de desarrollo
+    Si desarrolla un sitio web de portafolios similar, debe:
+    a. Crear un diseño visual completamente diferente
+    b. Desarrollar una arquitectura nueva y única
+    c. Implementar diferentes estructuras de componentes
+    d. Utilizar convenciones de nomenclatura y organización distintas
 
-Para proteger sus derechos, necesitamos evitar que otros le nieguen
-estos derechos o le pidan que los renuncie. Por lo tanto, usted tiene
-ciertas responsabilidades si distribuye copias del software, o si
-lo modifica: responsabilidades de respetar los derechos libres
+4. Sin garantía
+    El software se proporciona "tal cual", sin garantía de ningún tipo, expresa o implícita.
+
+5. Responsabilidad
+    En ningún caso el autor será responsable de ningún reclamo, daño u otra responsabilidad.
+
+6. Terminación
+    Cualquier intento de copiar, modificar o distribuir el código que infrinja estas restricciones se terminará automáticamente.
+
+Para obtener permisos que excedan el alcance de esta licencia, comuníquese con el titular de los derechos de autor.

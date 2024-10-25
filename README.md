@@ -1,4 +1,4 @@
-# Portafolio Sergio Jáuregui
+# Sergio Jáuregui Portafolio Web
 
 Un sitio web de portafolio personal moderno y responsivo creado con React y Tailwind CSS, que incluye un tema oscuro/claro, animaciones suaves y secciones para proyectos, habilidades e información de contacto.
 
@@ -89,22 +89,25 @@ npm run build
 
 Esto creará un directorio `dist` con archivos de producción optimizados.
 
-## 🤝 Contribuir
-
-¡Las contribuciones son bienvenidas! No dudes en enviar una solicitud de incorporación de cambios.
-
-1. Bifurca el repositorio
-2. Crea tu rama de funciones (`git checkout -b feature/AmazingFeature`)
-3. Confirma tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Sube a la rama (`git push origin feature/AmazingFeature`)
-5. Abre una solicitud de incorporación de cambios
-
 ## 📝 Licencia
 
-Este proyecto tiene licencia GNU General Public License v3.0 (GPLv3) - consulta el archivo [LICENSE](LICENSE) para obtener más detalles. Esto significa:
+Este proyecto está protegido bajo una licencia propietaria. Se aplican los siguientes términos:
 
-- ✅ Puedes usar, modificar y distribuir libremente este software
-- ✅ Debes mantener el código fuente abierto
-- ✅ Cualquier modificación también debe publicarse bajo GPLv3
-- ❌ No puedes usar este código en software propietario o de código cerrado
-- ❌ No puedes monetizar directamente este código sin compartir las modificaciones
+### Permitido:
+- ✅ Ver el código fuente con fines educativos
+- ✅ Ejecutar el proyecto localmente para evaluación personal
+
+### Prohibido:
+- ❌ Uso comercial de cualquier tipo
+- ❌ Copia o réplica directa del código
+- ❌ Distribución del código o versiones modificadas
+- ❌ Uso del código en otros proyectos, ya sean personales o comerciales
+
+### Requisitos de uso:
+Si desea crear un portafolio similar, debe:
+1. Desarrollar un diseño completamente diferente
+2. Crear una nueva arquitectura desde cero
+3. Implementar su propia estructura de componentes única
+4. Usar diferentes convenciones de nomenclatura y organización del código
+
+Copyright (c) 2024 Sergio Angel. Todos los derechos reservados.
