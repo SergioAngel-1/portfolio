@@ -23,7 +23,7 @@ export const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <span className="nav-brand gradient-text text-2xl font-bold">
-                Portfolio
+                Sergio Jáuregui
               </span>
             </div>
 
