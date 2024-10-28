@@ -5,15 +5,22 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
     @apply text-gray-900 dark:text-gray-100 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800;
+    overscroll-behavior-x: none;
   }
 
   :root {
     --mouse-x: 0;
     --mouse-y: 0;
+  }
+
+  /* Enable smooth scrolling on iOS */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -92,6 +99,7 @@
 .main-projects-carousel .swiper {
   padding: 0 !important;
   margin-top: 16px;
+  padding-bottom: 32px !important;
 }
 
 .swiper-navigation-wrapper {
@@ -168,6 +176,7 @@
 .swiper-button-disabled {
   opacity: 0.35 !important;
   cursor: not-allowed !important;
+  pointer-events: none !important;
 }
 
 .main-projects-pagination,
@@ -178,14 +187,29 @@
   align-items: center !important;
   margin: 0 !important;
   transform: none !important;
+  min-width: 100px;
+  justify-content: center;
 }
 
 .swiper-pagination-bullet {
   margin: 0 4px !important;
   width: 8px !important;
   height: 8px !important;
+  background-color: #d1d5db !important;
+  opacity: 1 !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer;
+}
+
+.dark .swiper-pagination-bullet {
+  background-color: #4b5563 !important;
 }
 
 .swiper-pagination-bullet-active {
+  background-color: #2563eb !important;
   transform: scale(1.25);
+}
+
+.dark .swiper-pagination-bullet-active {
+  background-color: #3b82f6 !important;
 }

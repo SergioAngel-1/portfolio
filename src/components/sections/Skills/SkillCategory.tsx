@@ -14,7 +14,11 @@ interface Props {
 export const SkillCategory = ({ title, skills, icon: CategoryIcon }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const MAX_VISIBLE_SKILLS =
-    title === "Estrategias Web" || title === "Herramientas" || title === "Habilidades Sociales" ? 5 : 6;
+    title === "Estrategias Web" ||
+    title === "Herramientas" ||
+    title === "Habilidades Sociales"
+      ? 5
+      : 6;
   const hasMoreSkills = skills.length > MAX_VISIBLE_SKILLS;
   const visibleSkills = skills.slice(0, MAX_VISIBLE_SKILLS);
 
@@ -39,7 +43,8 @@ export const SkillCategory = ({ title, skills, icon: CategoryIcon }: Props) => {
         <h3 className="text-xl font-semibold">{title}</h3>
       </motion.div>
 
-      <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4">
+      {/* Mobile Grid Layout */}
+      <div className="grid grid-cols-2 gap-4 md:hidden">
         {visibleSkills.map((skill, index) => (
           <SkillCard
             key={skill.name}
@@ -56,6 +61,30 @@ export const SkillCategory = ({ title, skills, icon: CategoryIcon }: Props) => {
             totalItems={MAX_VISIBLE_SKILLS}
           />
         )}
+      </div>
+
+      {/* Desktop Horizontal Scroll */}
+      <div className="relative hidden md:block">
+        <div className="overflow-x-auto touch-pan-x">
+          <div className="flex gap-4 min-w-max">
+            {visibleSkills.map((skill, index) => (
+              <SkillCard
+                key={skill.name}
+                skill={skill}
+                index={index}
+                totalItems={MAX_VISIBLE_SKILLS}
+              />
+            ))}
+            {hasMoreSkills && (
+              <SkillCard
+                index={MAX_VISIBLE_SKILLS}
+                isViewMore
+                onClick={() => setIsModalOpen(true)}
+                totalItems={MAX_VISIBLE_SKILLS}
+              />
+            )}
+          </div>
+        </div>
       </div>
 
       <SkillsModal

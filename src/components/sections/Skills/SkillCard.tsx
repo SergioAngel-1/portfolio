@@ -24,8 +24,8 @@ export const SkillCard = ({
   const cardWidth = isInModal
     ? "w-auto min-w-[200px]"
     : totalItems === 5
-    ? "w-[192px]"
-    : "w-[160px]";
+    ? "md:w-[192px]"
+    : "md:w-[160px]";
 
   if (isViewMore) {
     return (
@@ -34,7 +34,7 @@ export const SkillCard = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: index * 0.1 }}
         onClick={onClick}
-        className={`${cardWidth} shrink-0`}
+        className={`${cardWidth} w-full flex-shrink-0`}
       >
         <div className="card group hover:scale-105 cursor-pointer h-full border border-dashed border-blue-200 dark:border-blue-800 bg-gradient-to-br from-blue-50/50 to-white dark:from-blue-900/20 dark:to-gray-800">
           <div className="flex items-center space-x-3">
@@ -59,7 +59,7 @@ export const SkillCard = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
-      className={`${cardWidth} shrink-0 relative group`}
+      className={`${cardWidth} w-full flex-shrink-0 relative group`}
       onMouseEnter={() => !isInModal && setShowTooltip(true)}
       onMouseLeave={() => !isInModal && setShowTooltip(false)}
     >
