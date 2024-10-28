@@ -20,7 +20,6 @@ import {
   SiWoocommerce,
   SiSemanticscholar,
   SiWebpack,
-  SiTestinglibrary,
   SiLinux,
   SiGoogleanalytics,
   SiGitlab,
