@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-900 dark:text-gray-100 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800;
+  }
+
+  :root {
+    --mouse-x: 0;
+    --mouse-y: 0;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold mb-8 text-center;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+           bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 
+           dark:focus:ring-blue-400 focus:border-transparent transition-colors;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 
+           dark:hover:bg-blue-600 text-white font-medium rounded-lg 
+           transition-colors duration-200;
+  }
+
+  .nav-brand {
+    @apply relative inline-block;
+  }
+
+  .nav-brand::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 
+           dark:from-blue-400 dark:to-blue-300 transition-all duration-300;
+  }
+
+  .nav-brand:hover::after {
+    @apply w-full;
+  }
+
+  .nav-item {
+    @apply relative;
+  }
+
+  .nav-item::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 
+           dark:from-blue-400 dark:to-blue-300 transition-all duration-300;
+  }
+
+  .nav-item:hover::after {
+    @apply w-full;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-blue-700 via-blue-600 to-blue-500
+           dark:from-blue-300 dark:via-blue-400 dark:to-blue-500;
+  }
+
+  .theme-icon {
+    @apply transition-transform;
+  }
+
+  .theme-icon-sun {
+    @apply animate-[spin_2s_linear_infinite];
+  }
+
+  .theme-icon-moon {
+    @apply animate-[bounce_2s_ease-in-out_infinite];
+  }
+}
+
+.practice-projects-carousel .swiper,
+.main-projects-carousel .swiper {
+  padding: 0 !important;
+  margin-top: 16px;
+  padding-bottom: 48px !important;
+}
+
+.swiper-navigation-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.main-projects-next,
+.main-projects-prev,
+.practice-projects-next,
+.practice-projects-prev {
+  position: static !important;
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  color: #4b5563 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.main-projects-next:after,
+.main-projects-prev:after,
+.practice-projects-next:after,
+.practice-projects-prev:after {
+  font-family: "swiper-icons";
+  font-size: 1.25rem !important;
+  font-weight: bold;
+}
+
+.main-projects-next:after,
+.practice-projects-next:after {
+  content: "next";
+}
+
+.main-projects-prev:after,
+.practice-projects-prev:after {
+  content: "prev";
+}
+
+.dark .main-projects-next,
+.dark .main-projects-prev,
+.dark .practice-projects-next,
+.dark .practice-projects-prev {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #9ca3af !important;
+}
+
+.main-projects-next:hover,
+.main-projects-prev:hover,
+.practice-projects-next:hover,
+.practice-projects-prev:hover {
+  background-color: #f3f4f6;
+  color: #2563eb !important;
+}
+
+.dark .main-projects-next:hover,
+.dark .main-projects-prev:hover,
+.dark .practice-projects-next:hover,
+.dark .practice-projects-prev:hover {
+  background-color: #374151;
+  color: #60a5fa !important;
+}
+
+.swiper-button-disabled {
+  opacity: 0.35 !important;
+  cursor: not-allowed !important;
+}
+
+.main-projects-pagination,
+.practice-projects-pagination {
+  position: static !important;
+  width: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+.swiper-pagination-bullet {
+  margin: 0 4px !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+.swiper-pagination-bullet-active {
+  transform: scale(1.25);
+}
