@@ -11,7 +11,7 @@ export const AboutMe = () => {
   return (
     <section
       id="sobre-mi"
-      className="min-h-[70vh] relative flex items-center justify-center overflow-hidden"
+      className="min-h-[70vh] md:min-h-screen relative flex items-center justify-center overflow-hidden"
     >
       <div
         className="absolute inset-0"
