@@ -97,24 +97,3 @@ export const AboutMe = () => {
     </section>
   );
 };
-
-const SocialLink = ({
-  href,
-  icon,
-  label,
-}: {
-  href: string;
-  icon: React.ReactNode;
-  label: string;
-}) => (
-  <motion.a
-    href={href}
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className="flex items-center space-x-2 px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-    aria-label={label}
-  >
-    <span className="text-xl">{icon}</span>
-    <span className="font-medium">{label}</span>
-  </motion.a>
-);
