@@ -79,7 +79,7 @@ export const practiceProjects: Project[] = [
     technologies: ["Node.js", "React", "TypeScript", "Tailwind.css"],
     githubUrl:
       "https://github.com/SergioAngel-1/blog-app/tree/BlogAdministrableV.1",
-    liveUrl: "https://miblog-app.netlify.app/",
+    liveUrl: "https://mi-blog-app.netlify.app/",
   },
   {
     id: 6,
