@@ -47,6 +47,7 @@ export const Contact = () => {
         }}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative">
+        <h2 className="text-4xl font-bold mb-12 text-center">Contacto</h2>
         <div className="grid md:grid-cols-[1fr,1.5fr] gap-12">
           <div className="space-y-6">
             <p className="text-lg">
@@ -79,9 +80,9 @@ export const Contact = () => {
 
           <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200/50 dark:border-gray-700/50">
             <div className="p-8">
-              <h2 className="text-3xl font-bold mb-8 text-center">
+              <h3 className="text-2xl font-bold mb-8 text-center">
                 Déjame un mensaje
-              </h2>
+              </h3>
               <ContactForm />
             </div>
           </div>

@@ -39,7 +39,7 @@ export const SkillCategory = ({ title, skills, icon: CategoryIcon }: Props) => {
         <h3 className="text-xl font-semibold">{title}</h3>
       </motion.div>
 
-      <div className="flex gap-4 overflow-hidden py-4">
+      <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4">
         {visibleSkills.map((skill, index) => (
           <SkillCard
             key={skill.name}
