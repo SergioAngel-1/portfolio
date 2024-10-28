@@ -65,7 +65,7 @@ export const SkillCategory = ({ title, skills, icon: CategoryIcon }: Props) => {
 
       {/* Desktop Horizontal Scroll */}
       <div className="relative hidden md:block">
-        <div className="overflow-x-auto touch-pan-x">
+        <div className="overflow-hidden py-2">
           <div className="flex gap-4 min-w-max">
             {visibleSkills.map((skill, index) => (
               <SkillCard
