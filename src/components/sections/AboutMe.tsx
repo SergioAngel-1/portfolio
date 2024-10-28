@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FiDownload, FiGithub, FiLinkedin } from "react-icons/fi";
+import {
+  FiDownload,
+  FiGithub,
+  FiLinkedin,
+  FiChevronDown,
+} from "react-icons/fi";
 
 export const AboutMe = () => {
   const [ref, inView] = useInView({
@@ -11,7 +16,7 @@ export const AboutMe = () => {
   return (
     <section
       id="sobre-mi"
-      className="min-h-[70vh] md:min-h-screen relative flex items-center justify-center overflow-hidden"
+      className="min-h-[70vh] md:min-h-screen relative flex items-center justify-center overflow-hidden pt-16 md:pt-0"
     >
       <div
         className="absolute inset-0"
@@ -32,17 +37,17 @@ export const AboutMe = () => {
         transition={{ duration: 0.6 }}
         className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
       >
-        <h1 className="gradient-text text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+        <h1 className="gradient-text text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 md:mb-6">
           Desarrollador de Soluciones Web Impactantes y Escalables
         </h1>
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <p className="text-lg sm:text-xl">
             Apasionado por transformar ideas en experiencias digitales fluidas y
             eficientes. Mi enfoque se centra en crear proyectos únicos que
             combinan creatividad y funcionalidad.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 pt-8">
-            <div className="flex flex-wrap justify-center gap-4 pt-8">
+          <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
               <motion.a
                 href="https://github.com/SergioAngel-1"
                 target="_blank"
@@ -92,6 +97,21 @@ export const AboutMe = () => {
               </motion.a>
             </div>
           </div>
+
+          {/* Floating Arrow */}
+          <motion.div
+            className="flex justify-center mt-12 md:mt-16"
+            animate={{
+              y: [0, 10, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <FiChevronDown className="w-8 h-8 text-blue-500/50 dark:text-blue-400/50" />
+          </motion.div>
         </div>
       </motion.div>
     </section>
