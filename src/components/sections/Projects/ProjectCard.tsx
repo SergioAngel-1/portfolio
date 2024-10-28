@@ -153,7 +153,7 @@ export const ProjectCard = ({ project, index }: Props) => {
               className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
             >
               <FiExternalLink className="w-5 h-5" />
-              <span>Demo</span>
+              <span>Ver ahora</span>
             </a>
           )}
         </div>
