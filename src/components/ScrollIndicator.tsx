@@ -10,7 +10,7 @@ export const ScrollIndicator = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-blue-600 dark:bg-blue-400 transform origin-left z-\[9999\]"
+      className="fixed top-0 left-0 right-0 h-1 bg-blue-600 dark:bg-blue-400 transform origin-left z-[9999]"
       style={{ scaleX }}
     />
   );
