@@ -130,7 +130,7 @@ export const practiceProjects: Project[] = [
       "MySQL",
     ],
     githubUrl: "https://github.com/SergioAngel-1/PINUP",
-    liveUrl: "https://pinup.com",
+    liveUrl: "https://pinup-7bs6.onrender.com/",
   },
   {
     id: 10,
