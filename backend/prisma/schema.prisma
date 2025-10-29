@@ -1,0 +1,160 @@
+// Prisma Schema for Portfolio Database
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Profile Information
+model Profile {
+  id           String   @id @default(cuid())
+  name         String
+  title        String
+  tagline      String
+  bio          String   @db.Text
+  availability String   @default("available") // available, busy, unavailable
+  location     String
+  email        String   @unique
+  githubUrl    String?
+  linkedinUrl  String?
+  twitterUrl   String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("profiles")
+}
+
+// Projects
+model Project {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  title           String
+  description     String
+  longDescription String    @db.Text
+  image           String?
+  category        String    // web, mobile, ai, backend, fullstack
+  featured        Boolean   @default(false)
+  demoUrl         String?
+  repoUrl         String?
+  performanceScore Int?
+  accessibilityScore Int?
+  seoScore        Int?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  publishedAt     DateTime?
+
+  // Relations
+  technologies ProjectTechnology[]
+  views        ProjectView[]
+
+  @@index([category])
+  @@index([featured])
+  @@index([slug])
+  @@map("projects")
+}
+
+// Technologies/Skills
+model Technology {
+  id                String   @id @default(cuid())
+  name              String   @unique
+  category          String   // frontend, backend, devops, design, other
+  proficiency       Int      @default(0) // 0-100
+  yearsOfExperience Float    @default(0)
+  icon              String?
+  color             String   @default("#FF0000")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  projects ProjectTechnology[]
+
+  @@index([category])
+  @@map("technologies")
+}
+
+// Many-to-Many relation between Projects and Technologies
+model ProjectTechnology {
+  id           String     @id @default(cuid())
+  projectId    String
+  technologyId String
+  createdAt    DateTime   @default(now())
+
+  project    Project    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  technology Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, technologyId])
+  @@index([projectId])
+  @@index([technologyId])
+  @@map("project_technologies")
+}
+
+// Timeline Events (Work Experience, Education, Achievements)
+model TimelineEvent {
+  id           String    @id @default(cuid())
+  type         String    // work, education, achievement
+  title        String
+  organization String
+  description  String    @db.Text
+  startDate    DateTime
+  endDate      DateTime?
+  current      Boolean   @default(false)
+  technologies String[]  // Array of technology names
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([type])
+  @@index([current])
+  @@map("timeline_events")
+}
+
+// Contact Form Submissions
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String   @db.Text
+  ipAddress String?
+  userAgent String?
+  status    String   @default("new") // new, read, replied, spam
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("contact_submissions")
+}
+
+// Analytics - Project Views
+model ProjectView {
+  id        String   @id @default(cuid())
+  projectId String
+  ipAddress String?
+  userAgent String?
+  referrer  String?
+  createdAt DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([createdAt])
+  @@map("project_views")
+}
+
+// Analytics - Page Views
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  ipAddress String?
+  userAgent String?
+  referrer  String?
+  createdAt DateTime @default(now())
+
+  @@index([path])
+  @@index([createdAt])
+  @@map("page_views")
+}
