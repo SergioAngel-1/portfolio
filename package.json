@@ -1,0 +1,55 @@
+{
+  "name": "sergioja-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo para todos los proyectos de Sergio Jáuregui",
+  "workspaces": [
+    "backend",
+    "Portfolio/frontend",
+    "main-frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:portfolio\" \"npm run dev:main\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:portfolio": "cd Portfolio/frontend && npm run dev",
+    "dev:main": "cd main-frontend && npm run dev",
+    "build": "npm run build:backend && npm run build:portfolio && npm run build:main",
+    "build:backend": "cd backend && npm run build",
+    "build:portfolio": "cd Portfolio/frontend && npm run build",
+    "build:main": "cd main-frontend && npm run build",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:portfolio\" \"npm run start:main\"",
+    "start:backend": "cd backend && npm start",
+    "start:portfolio": "cd Portfolio/frontend && npm start",
+    "start:main": "cd main-frontend && npm start",
+    "lint": "npm run lint:backend && npm run lint:portfolio && npm run lint:main",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:portfolio": "cd Portfolio/frontend && npm run lint",
+    "lint:main": "cd main-frontend && npm run lint",
+    "type-check": "npm run type-check:backend && npm run type-check:portfolio && npm run type-check:main",
+    "type-check:backend": "cd backend && npm run type-check",
+    "type-check:portfolio": "cd Portfolio/frontend && npm run type-check",
+    "type-check:main": "cd main-frontend && npm run type-check",
+    "clean": "npm run clean:backend && npm run clean:portfolio && npm run clean:main",
+    "clean:backend": "cd backend && npm run clean",
+    "clean:portfolio": "cd Portfolio/frontend && rm -rf .next",
+    "clean:main": "cd main-frontend && rm -rf .next",
+    "db:generate": "cd backend && npm run db:generate",
+    "db:push": "cd backend && npm run db:push",
+    "db:migrate": "cd backend && npm run db:migrate",
+    "db:seed": "cd backend && npm run db:seed",
+    "db:studio": "cd backend && npm run db:studio",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:build": "docker-compose build",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "author": "Sergio Jáuregui",
+  "license": "MIT"
+}

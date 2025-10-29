@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  # Base de datos PostgreSQL
+  postgres:
+    image: postgres:14-alpine
+    container_name: sergioja-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
+      POSTGRES_DB: ${DB_NAME:-sergioja_db}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - sergioja-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API compartido
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sergioja-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DATABASE_URL: postgresql://${DB_USER:-postgres}:${DB_PASSWORD:-password}@postgres:5432/${DB_NAME:-sergioja_db}?schema=public
+      FRONTEND_URL: https://sergioja.com,https://portfolio.sergioja.com
+      RATE_LIMIT_WINDOW_MS: 900000
+      RATE_LIMIT_MAX_REQUESTS: 100
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - sergioja-network
+    volumes:
+      - ./backend/logs:/app/logs
+
+  # Frontend Portfolio
+  portfolio-frontend:
+    build:
+      context: ./Portfolio/frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: https://api.sergioja.com
+    container_name: portfolio-frontend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: https://api.sergioja.com
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - sergioja-network
+
+  # Frontend Main
+  main-frontend:
+    build:
+      context: ./main-frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: https://api.sergioja.com
+    container_name: main-frontend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: https://api.sergioja.com
+    ports:
+      - "3001:3000"
+    depends_on:
+      - backend
+    networks:
+      - sergioja-network
+
+networks:
+  sergioja-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
